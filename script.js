@@ -24,9 +24,9 @@ function operate(n1, n2, op) {
     case "-":
       return subtract(n1, n2);
     case "*":
-      return multiply(n1, n2);
+      return Math.round(multiply(n1, n2) * 1000) / 1000;
     case "/":
-      if(n2 !== 0) return divide(n1, n2);
+      if(n2 !== 0) return Math.round(divide(n1, n2) * 1000) / 1000;
   }
 }
 
@@ -65,6 +65,12 @@ function clearAll() {
   resultScreen.textContent = "";
 }
 
+function addPoint() {
+  if(currentScreen.textContent !== "" && !currentScreen.textContent.includes(".")) {
+    currentScreen.textContent += ".";
+  }
+}
+
 const lastScreen = document.querySelector("#last");
 const currentScreen = document.querySelector("#current");
 const signScreen = document.querySelector("#sign");
@@ -73,8 +79,10 @@ const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
 const equalButton = document.querySelector("#equal");
 const allClearButton = document.querySelector("#all-clear");
+const pointButton = document.querySelector("#point");
 
 digitButtons.forEach(button => button.addEventListener("click", e => handleDigit(e.target.value)));
 operatorButtons.forEach(operator => operator.addEventListener("click", e => handleOperator(e.target.value)));
 equalButton.addEventListener("click", handleEqualButton);
 allClearButton.addEventListener("click", clearAll);
+pointButton.addEventListener("click", addPoint);
