@@ -65,6 +65,15 @@ function clearAll() {
   resultScreen.textContent = "";
 }
 
+function clearLast() {
+  currentScreen.textContent = currentScreen.textContent.slice(0, -1);
+  if(currentScreen.textContent !== "") {
+    resultScreen.textContent = operate();
+  } else {
+    resultScreen.textContent = "";
+  }
+}
+
 function addPoint() {
   if(currentScreen.textContent !== "" && !currentScreen.textContent.includes(".")) {
     currentScreen.textContent += ".";
@@ -79,10 +88,12 @@ const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
 const equalButton = document.querySelector("#equal");
 const allClearButton = document.querySelector("#all-clear");
+const clearButton = document.querySelector("#clear");
 const pointButton = document.querySelector("#point");
 
 digitButtons.forEach(button => button.addEventListener("click", e => handleDigit(e.target.value)));
 operatorButtons.forEach(operator => operator.addEventListener("click", e => handleOperator(e.target.value)));
 equalButton.addEventListener("click", handleEqualButton);
 allClearButton.addEventListener("click", clearAll);
+clearButton.addEventListener("click", clearLast);
 pointButton.addEventListener("click", addPoint);
