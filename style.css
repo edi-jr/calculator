@@ -1,0 +1,12 @@
+#display {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  text-align: end;
+}
+
+#result {
+  flex: 1 0 100%;
+}
