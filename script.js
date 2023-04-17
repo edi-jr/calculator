@@ -95,11 +95,11 @@ const signScreen = document.querySelector("#sign");
 const resultScreen = document.querySelector("#result");
 const digitButtons = document.querySelectorAll(".digit");
 const operatorButtons = document.querySelectorAll(".operator");
-const equalButton = document.querySelector("#equal");
-const allClearButton = document.querySelector("#all-clear");
-const clearButton = document.querySelector("#clear");
-const pointButton = document.querySelector("#point");
-const invertSignButton = document.querySelector("#invert-sign");
+const equalButton = document.querySelector(".equal");
+const allClearButton = document.querySelector(".all-clear");
+const clearButton = document.querySelector(".clear");
+const pointButton = document.querySelector(".point");
+const invertSignButton = document.querySelector(".invert-sign");
 
 digitButtons.forEach(button => button.addEventListener("click", e => handleDigit(e.target.value)));
 operatorButtons.forEach(operator => operator.addEventListener("click", e => handleOperator(e.target.value)));
@@ -108,3 +108,32 @@ allClearButton.addEventListener("click", clearAll);
 clearButton.addEventListener("click", clearLast);
 pointButton.addEventListener("click", addPoint);
 invertSignButton.addEventListener("click", invertSign);
+
+window.addEventListener("keydown", e => {
+  e.preventDefault();
+  const button = document.querySelector(`button[value="${e.key}"]`);
+  if(button) {
+    switch(button.classList[0]) {
+      case "digit":
+        handleDigit(button.value);
+        break;
+      case "operator":
+        handleOperator(button.value);
+        break;
+      case "equal":
+        handleEqualButton();
+        break;
+      case "all-clear":
+        clearAll();
+        break;
+      case "clear":
+        clearLast();
+        break;
+      case "point":
+        addPoint();
+        break;
+    }
+  } else {
+    return;
+  }
+});
