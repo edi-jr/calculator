@@ -18,7 +18,7 @@ body {
 #calculator {
   border-radius: 2px;
   box-shadow: 0 0 5px black;
-  background-color: #ff4499;
+  background-color: #00aeff;
   padding: 16px;
   width: 300px;
   display: grid;
@@ -30,7 +30,7 @@ body {
 #display {
   border-radius: 2px;
   background-color: #303030;
-  color: #ff4499;
+  color: #00aeff;
   padding: 8px;
   margin-bottom: 11px;
   grid-column: 1 / -1;
@@ -62,7 +62,7 @@ button {
 
 button:hover {
   background-color: #121212;
-  color: #ff4499;
+  color: #00aeff;
   cursor: pointer;
 }
 
