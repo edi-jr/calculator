@@ -101,8 +101,8 @@ const clearButton = document.querySelector(".clear");
 const pointButton = document.querySelector(".point");
 const invertSignButton = document.querySelector(".invert-sign");
 
-digitButtons.forEach(button => button.addEventListener("click", e => handleDigit(e.target.value)));
-operatorButtons.forEach(operator => operator.addEventListener("click", e => handleOperator(e.target.value)));
+digitButtons.forEach(button => button.addEventListener("click", e => handleDigit(e.target.dataset.value)));
+operatorButtons.forEach(operator => operator.addEventListener("click", e => handleOperator(e.target.dataset.value)));
 equalButton.addEventListener("click", handleEqualButton);
 allClearButton.addEventListener("click", clearAll);
 clearButton.addEventListener("click", clearLast);
@@ -113,19 +113,19 @@ window.addEventListener("keydown", e => {
   e.preventDefault();
   let button;
   if(e.key === "*") {
-    button = document.querySelector(`button[value="×"]`);
+    button = document.querySelector(`button[data-value="×"]`);
   } else if(e.key === "/") {
-    button = document.querySelector(`button[value="÷"]`);
+    button = document.querySelector(`button[data-value="÷"]`);
   } else {
-    button = document.querySelector(`button[value="${e.key}"]`);
+    button = document.querySelector(`button[data-value="${e.key}"]`);
   }
   if(button) {
     switch(button.classList[0]) {
       case "digit":
-        handleDigit(button.value);
+        handleDigit(button.dataset.value);
         break;
       case "operator":
-        handleOperator(button.value);
+        handleOperator(button.dataset.value);
         break;
       case "equal":
         handleEqualButton();
