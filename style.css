@@ -16,29 +16,29 @@ body {
 }
 
 #calculator {
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 0 0 5px black;
   background-color: #00aeff;
-  padding: 16px;
-  width: 300px;
+  padding: 20px;
+  width: 600px;
   display: grid;
-  gap: 5px;
+  gap: 10px;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 80px repeat(5, 50px);
+  grid-template-rows: 160px repeat(5, 100px);
 }
 
 #display {
-  border-radius: 2px;
+  border-radius: 5px;
   background-color: #303030;
   color: #00aeff;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 11px;
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
   text-align: end;
-  column-gap: 2px;
+  font-size: 2.5rem;
 }
 
 #last, #sign, #current {
@@ -55,13 +55,14 @@ body {
 }
 
 button {
-  border: 1px solid #121212;
-  border-radius: 2px;
-  color: #121212;
+  border: 2px solid #303030;
+  border-radius: 5px;
+  color: #303030;
+  font-size: 2rem;
 }
 
 button:hover {
-  background-color: #121212;
+  background-color: #303030;
   color: #00aeff;
   cursor: pointer;
 }
