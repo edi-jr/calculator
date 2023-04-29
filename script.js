@@ -23,9 +23,9 @@ function operate(n1, n2, op) {
       return add(n1, n2);
     case "-":
       return subtract(n1, n2);
-    case "*":
+    case "×":
       return Math.round(multiply(n1, n2) * 1000) / 1000;
-    case "/":
+    case "÷":
       if(n2 !== 0) return Math.round(divide(n1, n2) * 1000) / 1000;
   }
 }
@@ -111,7 +111,14 @@ invertSignButton.addEventListener("click", invertSign);
 
 window.addEventListener("keydown", e => {
   e.preventDefault();
-  const button = document.querySelector(`button[value="${e.key}"]`);
+  let button;
+  if(e.key === "*") {
+    button = document.querySelector(`button[value="×"]`);
+  } else if(e.key === "/") {
+    button = document.querySelector(`button[value="÷"]`);
+  } else {
+    button = document.querySelector(`button[value="${e.key}"]`);
+  }
   if(button) {
     switch(button.classList[0]) {
       case "digit":
