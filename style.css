@@ -9,6 +9,7 @@
 
 body {
   background-color: #121212;
+  padding: 10px;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -22,10 +23,30 @@ body {
   background-color: #00aeff;
   padding: 20px;
   width: 600px;
+  height: 750px;
+  aspect-ratio: 1 / 1.25;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 160px repeat(5, 100px);
+  grid-template-rows: 2fr repeat(5, 1fr);
+}
+
+@media screen and (max-height: 770px) {
+  #calculator {
+    height: 100%;
+    width: auto;
+  }
+}
+
+@media screen and (max-width:630px) {
+  body {
+    align-items: start;
+  }
+  
+  #calculator {
+    width: 100%;
+    height: auto;
+  }
 }
 
 #display {
